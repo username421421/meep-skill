@@ -2,7 +2,35 @@
 
 A Codex skill for creating, debugging, and optimizing Meep/PyMeep simulations using a bundled local snapshot of the Meep documentation.
 
-## What This Repo Contains
+## Installation
+
+### Codex Skill Installer Format
+
+Install this skill into Codex:
+
+```bash
+python "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo username421421/meep-skill --path . --name meep
+```
+
+Reference format (install `linear` from OpenAI skills):
+
+```bash
+python "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo openai/skills --path skills/.curated/linear
+```
+
+If your target repo keeps `linear` under `.experimental`, use the same command and swap the path to `skills/.experimental/linear`.
+
+### Cross-Agent Install Format
+
+Install for coding agents supported by `skills` CLI:
+
+```bash
+npx skills add https://github.com/username421421/meep-skill --skill meep
+```
+
+Restart your coding agent after installation.
+
+## Repo Contents
 
 - `SKILL.md`: Main skill instructions and workflow.
 - `references/navigation.md`: Task-to-document routing.
@@ -21,20 +49,6 @@ python scripts/meep_docs.py list --limit 40
 python scripts/meep_docs.py search "stop_when_fields_decayed"
 python scripts/meep_docs.py toc Python_User_Interface.md --max 50
 python scripts/meep_docs.py section Python_User_Interface.md "Flux Spectra"
-```
-
-## One-Line Install (npm)
-
-Codex:
-
-```bash
-npx --yes degit username421421/meep-skill "$HOME/.codex/skills/meep" --force
-```
-
-Claude Code:
-
-```bash
-npx --yes degit username421421/meep-skill "$HOME/.claude/skills/meep" --force
 ```
 
 ## Example Code Retrieval
@@ -62,13 +76,6 @@ Extract a full composed section script (recommended):
 ```bash
 python scripts/meep_docs.py compose Python_Tutorials/Basics.md --title "Transmittance Spectrum of a Waveguide Bend" --lang py
 ```
-
-## Using As a Codex Skill
-
-1. Copy this folder to your Codex skills directory as `meep`.
-2. Ensure `SKILL.md` remains at the skill root.
-3. Trigger the skill by asking for Meep/PyMeep/FDTD simulation help.
-4. Follow `SKILL.md` plus `references/*.md` and verify APIs in `doc/docs/Python_User_Interface.md`.
 
 ## Validation
 
