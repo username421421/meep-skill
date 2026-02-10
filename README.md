@@ -23,6 +23,20 @@ python scripts/meep_docs.py toc Python_User_Interface.md --max 50
 python scripts/meep_docs.py section Python_User_Interface.md "Flux Spectra"
 ```
 
+## One-Line Install (npm)
+
+Codex:
+
+```bash
+npx --yes degit username421421/meep-skill "$HOME/.codex/skills/meep" --force
+```
+
+Claude Code:
+
+```bash
+npx --yes degit username421421/meep-skill "$HOME/.claude/skills/meep" --force
+```
+
 ## Example Code Retrieval
 
 List tutorial sections that contain code snippets:
